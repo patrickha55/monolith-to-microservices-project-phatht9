@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: udagram-frontend
   labels:
-    run: udagram-frontend
+    app: udagram-frontend
 spec:
   ports:
   - port: 8100
     protocol: TCP
   selector:
-    run: udagram-frontend
+    app: udagram-frontend

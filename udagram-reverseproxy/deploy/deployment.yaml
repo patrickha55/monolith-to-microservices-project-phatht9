@@ -5,7 +5,7 @@ metadata:
   labels:
     app: reverseproxy
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: reverseproxy
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: reverseproxy
-        image: patrickha55/reverseproxy
+        image: patrickha55/reverseproxy:v1
         imagePullPolicy: Always          
         resources:
           requests:
