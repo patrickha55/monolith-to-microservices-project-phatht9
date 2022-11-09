@@ -10,6 +10,7 @@ import {V0_FEED_MODELS} from './controllers/v0/model.index';
 
 
 (async () => {
+  console.log("POSTGRES: ", process.env.POSTGRES_DB, process.env.POSTGRES_USERNAME)
   await sequelize.addModels(V0_FEED_MODELS);
 
   console.debug("Initialize database connection...");
