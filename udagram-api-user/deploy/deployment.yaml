@@ -5,7 +5,7 @@ metadata:
   labels:
     app: udagram-api-user
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: udagram-api-user
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: udagram-api-user
-        image: patrickha55/udagram-api-user
+        image: patrickha55/udagram-api-user:v1
         env:
         - name: URL
           valueFrom:
