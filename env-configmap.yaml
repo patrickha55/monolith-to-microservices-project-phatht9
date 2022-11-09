@@ -8,6 +8,6 @@ data:
   POSTGRES_DB: imagefilteringdb
   POSTGRES_HOST: imagefilteringdb.cia3t1dfsylg.us-east-1.rds.amazonaws.com
   URL: http://localhost:8100
-  PORT: 8100
+  PORT: "8100"
 metadata:
   name: env-config
