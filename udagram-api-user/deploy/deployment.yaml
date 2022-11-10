@@ -5,7 +5,7 @@ metadata:
   labels:
     app: udagram-api-user
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: udagram-api-user
@@ -17,27 +17,13 @@ spec:
       containers:
       - name: udagram-api-user
         image: patrickha55/udagram-api-user:v2
+        imagePullPolicy: Always
         env:
         - name: URL
           valueFrom:
             configMapKeyRef:
               name: env-config
               key: URL
-        - name: AWS_BUCKET
-          valueFrom:
-            configMapKeyRef:
-              name: env-config
-              key: AWS_BUCKET
-        - name: AWS_PROFILE
-          valueFrom:
-            configMapKeyRef:
-              name: env-config
-              key: AWS_PROFILE
-        - name: AWS_REGION
-          valueFrom:
-            configMapKeyRef:
-              name: env-config
-              key: AWS_REGION
         - name: JWT_SECRET
           valueFrom:
             configMapKeyRef:
@@ -62,15 +48,5 @@ spec:
           valueFrom:
             secretKeyRef:
               name: env-secret
-              key: POSTGRES_USERNAME      
-        volumeMounts:
-        - name: aws-secret
-          mountPath: "/root/.aws/"
-          readOnly: true
-        ports:
-        - containerPort: 8080
+              key: POSTGRES_USERNAME
       restartPolicy: Always
-      volumes:
-      - name: aws-secret
-        secret:
-          secretName: aws-secret
