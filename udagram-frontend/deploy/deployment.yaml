@@ -17,12 +17,20 @@ spec:
       containers:
       - name: udagram-frontend
         image: patrickha55/udagram-frontend:v2
+        imagePullPolicy: Always
         volumeMounts:
         - name: aws-secret
           mountPath: "/root/.aws/"
           readOnly: true
         ports:
         - containerPort: 8100
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"   
       restartPolicy: Always
       volumes:
       - name: aws-secret

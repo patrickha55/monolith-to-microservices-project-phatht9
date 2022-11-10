@@ -17,6 +17,7 @@ spec:
       containers:
       - name: udagram-api-feed
         image: patrickha55/udagram-api-feed:v2
+        imagePullPolicy: Always
         env:
         - name: URL
           valueFrom:
@@ -69,6 +70,13 @@ spec:
         - name: aws-secret
           mountPath: "/root/.aws/"
           readOnly: true
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "2048Mi"
+            cpu: "500m" 
         ports:
         - containerPort: 8080
       restartPolicy: Always
