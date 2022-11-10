@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: reverseproxy
-        image: patrickha55/reverseproxy:v1
+        image: patrickha55/reverseproxy:v2
         imagePullPolicy: Always          
         resources:
           requests:
@@ -26,5 +26,5 @@ spec:
             memory: "1024Mi"
             cpu: "500m"    
         ports:
-        - containerPort: 8100
+        - containerPort: 8080
       restartPolicy: Always

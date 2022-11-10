@@ -5,7 +5,7 @@ metadata:
   labels:
     app: udagram-api-feed
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: udagram-api-feed
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: udagram-api-feed
-        image: patrickha55/udagram-api-feed:v1
+        image: patrickha55/udagram-api-feed:v2
         env:
         - name: URL
           valueFrom:
