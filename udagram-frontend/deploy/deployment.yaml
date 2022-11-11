@@ -3,27 +3,24 @@ kind: Deployment
 metadata:
   name: udagram-frontend
   labels:
-    app: udagram-frontend
+    service: udagram-frontend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: udagram-frontend
+      service: udagram-frontend
   template:
     metadata:
       labels:
-        app: udagram-frontend
+        service: udagram-frontend
+        api: external
     spec:
       containers:
       - name: udagram-frontend
-        image: patrickha55/udagram-frontend:v2
+        image: patrickha55/udagram-frontend:v3
         imagePullPolicy: Always
-        volumeMounts:
-        - name: aws-secret
-          mountPath: "/root/.aws/"
-          readOnly: true
         ports:
-        - containerPort: 8100
+        - containerPort: 80
         resources:
           requests:
             memory: "64Mi"
@@ -32,8 +29,3 @@ spec:
             memory: "1024Mi"
             cpu: "500m"   
       restartPolicy: Always
-      volumes:
-      - name: aws-secret
-        secret:
-          secretName: aws-secret
-

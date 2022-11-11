@@ -5,7 +5,7 @@ metadata:
   labels:
     app: udagram-api-feed
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: udagram-api-feed
@@ -70,15 +70,6 @@ spec:
         - name: aws-secret
           mountPath: "/root/.aws/"
           readOnly: true
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "2048Mi"
-            cpu: "500m" 
-        ports:
-        - containerPort: 8080
       restartPolicy: Always
       volumes:
       - name: aws-secret
