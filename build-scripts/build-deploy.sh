@@ -16,10 +16,10 @@ echo "Deploy API Feed."
 cd udagram-api-feed/deploy
 
 kubectl apply -f ./deployment.yaml
+kubectl apply -f ./api-feed-hpa.yaml
 kubectl apply -f ./service.yaml
 
 cd ../..
-echo "$PWD"
 
 echo "Finished."
 echo "Deploy API User."
@@ -27,6 +27,7 @@ echo "Deploy API User."
 cd udagram-api-user/deploy
 
 kubectl apply -f ./deployment.yaml
+kubectl apply -f ./api-user-hpa.yaml
 kubectl apply -f ./service.yaml
 
 cd ../..
@@ -34,9 +35,10 @@ cd ../..
 echo "Finished."
 echo "Deploy API Frontend."
 
-cd udagram-frontend/deploy
-echo "$PWD"
+cd udagram-frontend/Deploy
+
 kubectl apply -f ./deployment.yaml
+kubectl apply -f ./frontend-hpa.yaml
 kubectl apply -f ./service.yaml
 
 cd ../..

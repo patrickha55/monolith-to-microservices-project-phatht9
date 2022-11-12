@@ -18,6 +18,11 @@ spec:
       - name: udagram-api-feed
         image: patrickha55/udagram-api-feed:v2
         imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 500m
+          limits:
+            cpu: 1000m 
         env:
         - name: URL
           valueFrom:
@@ -70,7 +75,6 @@ spec:
         - name: aws-secret
           mountPath: "/root/.aws/"
           readOnly: true
-      restartPolicy: Always
       volumes:
       - name: aws-secret
         secret:
