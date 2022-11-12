@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 data:
-  AWS_BUCKET: image-filtering-bucket-phatht9
+  AWS_BUCKET: image-filtering-app
   AWS_PROFILE: default
   AWS_REGION: us-east-1
   JWT_SECRET: udagramjwtsecret
